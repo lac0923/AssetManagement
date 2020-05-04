@@ -17,7 +17,7 @@ namespace OtakuAssetManagement.Controllers
         // GET: Asset
         public ActionResult Index()
         {
-            return View(db.M_Asset.ToList());
+            return View(db.GetAssetList().ToList());
         }
 
         // GET: Asset/Details/5

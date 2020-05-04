@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OtakuAssetManagement.Models.M_Asset>
+﻿@model IEnumerable<OtakuAssetManagement.Models.GetAssetList_Result>
 
 @{
     ViewBag.Title = "グッズ一覧";
@@ -6,9 +6,9 @@
 
 <h2>オタクグッズ一覧</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("新規追加", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.AssetName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UseCategory)
+            @Html.DisplayNameFor(model => model.UseCategoryName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Amount)
@@ -32,12 +32,12 @@
         <th>
             @Html.DisplayNameFor(model => model.GetReason)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.TransferDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TransferReason)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.BelongingID)
         </th>
@@ -47,59 +47,60 @@
         <th>
             @Html.DisplayNameFor(model => model.InsertDate)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.UpdateDate)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UseCategory)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GetDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GetReason)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TransferDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TransferReason)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BelongingID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlaceID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InsertDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateDate)
-        </td>
-        <td>
-            @Html.ActionLink("編集", "Edit", new { id=item.AssetID }) |
-            @Html.ActionLink("詳細", "Details", new { id=item.AssetID }) |
-            @Html.ActionLink("削除", "Delete", new { id=item.AssetID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssetNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssetName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UseCategoryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Amount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssetStatusName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GetDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GetReasonName)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.TransferDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TransferReason)
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.BelongingName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PlaceName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.InsertDate)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.UpdateDate)
+    </td>*@
+    @*<td>
+        @Html.ActionLink("編集", "Edit", new { id = item.AssetID }) |
+        @Html.ActionLink("詳細", "Details", new { id = item.AssetID }) |
+        @Html.ActionLink("削除", "Delete", new { id = item.AssetID })
+    </td>*@
+</tr>
+    }
 
 </table>

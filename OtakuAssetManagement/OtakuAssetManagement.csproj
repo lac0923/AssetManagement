@@ -150,6 +150,9 @@
       <DependentUpon>AssetModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AssetMetaData.cs" />
+    <Compile Include="Models\GetAssetList_Result1.cs">
+      <DependentUpon>AssetModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\M_Asset.cs">
       <DependentUpon>AssetModel.tt</DependentUpon>
     </Compile>

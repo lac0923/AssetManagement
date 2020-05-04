@@ -12,6 +12,8 @@ namespace OtakuAssetManagement.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class OtakuAssetEntities : DbContext
     {
@@ -27,5 +29,10 @@ namespace OtakuAssetManagement.Models
     
         public virtual DbSet<M_Asset> M_Asset { get; set; }
         public virtual DbSet<M_UseCategory> M_UseCategory { get; set; }
+    
+        public virtual ObjectResult<GetAssetList_Result> GetAssetList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAssetList_Result>("GetAssetList");
+        }
     }
 }

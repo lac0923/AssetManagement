@@ -32,6 +32,7 @@
           <Property Name="UseCategoryName" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="StopFlag" Type="tinyint" Nullable="false" />
         </EntityType>
+        <Function Name="GetAssetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="OtakuAssetModelStoreContainer">
           <EntitySet Name="M_Asset" EntityType="Self.M_Asset" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_UseCategory" EntityType="Self.M_UseCategory" Schema="dbo" store:Type="Tables" />
@@ -62,6 +63,7 @@
         <EntityContainer Name="OtakuAssetEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="M_Asset" EntityType="Self.M_Asset" />
           <EntitySet Name="M_UseCategory" EntityType="OtakuAssetModel.M_UseCategory" />
+          <FunctionImport Name="GetAssetList" ReturnType="Collection(OtakuAssetModel.GetAssetList_Result)" />
         </EntityContainer>
         <EntityType Name="M_UseCategory">
           <Key>
@@ -71,6 +73,27 @@
           <Property Name="UseCategoryName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="StopFlag" Type="Byte" Nullable="false" />
         </EntityType>
+        <ComplexType Name="GetAssetList_Result">
+          <Property Type="Int64" Name="AssetID" Nullable="false" />
+          <Property Type="Int64" Name="AssetNo" Nullable="false" />
+          <Property Type="String" Name="AssetName" Nullable="false" MaxLength="60" />
+          <Property Type="Int32" Name="UseCategory" Nullable="false" />
+          <Property Type="String" Name="UseCategoryName" Nullable="true" MaxLength="60" />
+          <Property Type="Int16" Name="Amount" Nullable="false" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="String" Name="AssetStatusName" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="GetDate" Nullable="false" />
+          <Property Type="Byte" Name="GetReason" Nullable="false" />
+          <Property Type="String" Name="GetReasonName" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="TransferDate" Nullable="false" />
+          <Property Type="Byte" Name="TransferReason" Nullable="false" />
+          <Property Type="Int32" Name="BelongingID" Nullable="false" />
+          <Property Type="String" Name="BelongingName" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="PlaceID" Nullable="false" />
+          <Property Type="String" Name="PlaceName" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="InsertDate" Nullable="false" />
+          <Property Type="Int32" Name="UpdateDate" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -106,6 +129,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAssetList" FunctionName="OtakuAssetModel.Store.GetAssetList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OtakuAssetModel.GetAssetList_Result">
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+                <ScalarProperty Name="AssetNo" ColumnName="AssetNo" />
+                <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+                <ScalarProperty Name="UseCategory" ColumnName="UseCategory" />
+                <ScalarProperty Name="UseCategoryName" ColumnName="UseCategoryName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AssetStatusName" ColumnName="AssetStatusName" />
+                <ScalarProperty Name="GetDate" ColumnName="GetDate" />
+                <ScalarProperty Name="GetReason" ColumnName="GetReason" />
+                <ScalarProperty Name="GetReasonName" ColumnName="GetReasonName" />
+                <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+                <ScalarProperty Name="TransferReason" ColumnName="TransferReason" />
+                <ScalarProperty Name="BelongingID" ColumnName="BelongingID" />
+                <ScalarProperty Name="BelongingName" ColumnName="BelongingName" />
+                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+                <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
