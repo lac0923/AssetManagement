@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OtakuAssetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="M_Asset">
+          <Key>
+            <PropertyRef Name="AssetID" />
+          </Key>
+          <Property Name="AssetID" Type="bigint" Nullable="false" />
+          <Property Name="AssetNo" Type="bigint" Nullable="false" />
+          <Property Name="AssetName" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="UseCategory" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="smallint" Nullable="false" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="GetDate" Type="int" Nullable="false" />
+          <Property Name="GetReason" Type="tinyint" Nullable="false" />
+          <Property Name="TransferDate" Type="int" Nullable="false" />
+          <Property Name="TransferReason" Type="tinyint" Nullable="false" />
+          <Property Name="BelongingID" Type="int" Nullable="false" />
+          <Property Name="PlaceID" Type="int" Nullable="false" />
+          <Property Name="InsertDate" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_UseCategory">
+          <Key>
+            <PropertyRef Name="UseCategory" />
+          </Key>
+          <Property Name="UseCategory" Type="int" Nullable="false" />
+          <Property Name="UseCategoryName" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="StopFlag" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="OtakuAssetModelStoreContainer">
+          <EntitySet Name="M_Asset" EntityType="Self.M_Asset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_UseCategory" EntityType="Self.M_UseCategory" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OtakuAssetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="M_Asset">
+          <Key>
+            <PropertyRef Name="AssetID" />
+          </Key>
+          <Property Name="AssetID" Type="Int64" Nullable="false" />
+          <Property Name="AssetNo" Type="Int64" Nullable="false" />
+          <Property Name="AssetName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UseCategory" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int16" Nullable="false" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="GetDate" Type="Int32" Nullable="false" />
+          <Property Name="GetReason" Type="Byte" Nullable="false" />
+          <Property Name="TransferDate" Type="Int32" Nullable="false" />
+          <Property Name="TransferReason" Type="Byte" Nullable="false" />
+          <Property Name="BelongingID" Type="Int32" Nullable="false" />
+          <Property Name="PlaceID" Type="Int32" Nullable="false" />
+          <Property Name="InsertDate" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="OtakuAssetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="M_Asset" EntityType="Self.M_Asset" />
+          <EntitySet Name="M_UseCategory" EntityType="OtakuAssetModel.M_UseCategory" />
+        </EntityContainer>
+        <EntityType Name="M_UseCategory">
+          <Key>
+            <PropertyRef Name="UseCategory" />
+          </Key>
+          <Property Name="UseCategory" Type="Int32" Nullable="false" />
+          <Property Name="UseCategoryName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="StopFlag" Type="Byte" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OtakuAssetModelStoreContainer" CdmEntityContainer="OtakuAssetEntities">
+          <EntitySetMapping Name="M_Asset">
+            <EntityTypeMapping TypeName="OtakuAssetModel.M_Asset">
+              <MappingFragment StoreEntitySet="M_Asset">
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+                <ScalarProperty Name="AssetNo" ColumnName="AssetNo" />
+                <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+                <ScalarProperty Name="UseCategory" ColumnName="UseCategory" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GetDate" ColumnName="GetDate" />
+                <ScalarProperty Name="GetReason" ColumnName="GetReason" />
+                <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+                <ScalarProperty Name="TransferReason" ColumnName="TransferReason" />
+                <ScalarProperty Name="BelongingID" ColumnName="BelongingID" />
+                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_UseCategory">
+            <EntityTypeMapping TypeName="OtakuAssetModel.M_UseCategory">
+              <MappingFragment StoreEntitySet="M_UseCategory">
+                <ScalarProperty Name="StopFlag" ColumnName="StopFlag" />
+                <ScalarProperty Name="UseCategoryName" ColumnName="UseCategoryName" />
+                <ScalarProperty Name="UseCategory" ColumnName="UseCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="なし" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

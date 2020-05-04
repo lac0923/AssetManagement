@@ -1,0 +1,105 @@
+﻿@model IEnumerable<OtakuAssetManagement.Models.M_Asset>
+
+@{
+    ViewBag.Title = "グッズ一覧";
+}
+
+<h2>オタクグッズ一覧</h2>
+
+<p>
+    @Html.ActionLink("新規追加", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UseCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GetDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GetReason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferReason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BelongingID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UseCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GetDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GetReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransferDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransferReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BelongingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsertDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.ActionLink("編集", "Edit", new { id=item.AssetID }) |
+            @Html.ActionLink("詳細", "Details", new { id=item.AssetID }) |
+            @Html.ActionLink("削除", "Delete", new { id=item.AssetID })
+        </td>
+    </tr>
+}
+
+</table>

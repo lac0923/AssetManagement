@@ -1,0 +1,122 @@
+﻿@model OtakuAssetManagement.Models.M_Asset
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>M_Asset</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssetNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssetNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UseCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UseCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GetDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GetDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GetReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GetReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransferDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransferDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransferReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransferReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BelongingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BelongingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AssetID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
